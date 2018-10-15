@@ -40,12 +40,9 @@
 
     $(contentClass).each(function () {
       var $this = $(this);
-      // The only CSS requirement for this to work for the spoilered content
-      // to have an overflow: hidden rule applied.
-      $this.css("overflow", "hidden");
 
       // Hide all content
-      $this.css("height", "0");
+      $this.css("display", "none");
     });
 
 
@@ -56,8 +53,8 @@
           $content = $(contentClass + "[data-spoiler-link=" + spoiler + "]");
 
       // The container's collapsed/expanded height values
-      var showContent = {"height": "auto"},
-          hideContent = {"height": "0"};
+      var showContent = {"display": "block"},
+          hideContent = {"display": "none"};
 
       // Check if content is visible or not
       var isVisible = $content.hasClass(settings.spoilerVisibleClass);
